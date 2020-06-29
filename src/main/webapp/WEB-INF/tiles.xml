@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="noTiles" template="/WEB-INF/views/layouts/public.jsp">
+   		<put-attribute name="noTemplate" value="" />
+    </definition>
+    <definition name="*.jsp" extends="noTiles">
+    	<put-attribute name="noTemplate" value="/WEB-INF/views/{1}.jsp" />
+    </definition>
+    <definition name="public" template="/WEB-INF/views/layouts/public.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+    	<put-attribute name="navigator" value="/WEB-INF/views/common/navigator.jsp"/>
+    	<put-attribute name="content" value="/WEB-INF/views/common/content.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    </definition>
+    <definition name="*/*.tiles" extends="public">
+    	<put-attribute name="home" value="/WEB-INF/views/{1}/{2}.jsp"/>
+    </definition>
+    
+    <definition name="user" template="/WEB-INF/views/layouts/user.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+    	<put-attribute name="navigator" value="/WEB-INF/views/common/navigator.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    	<put-attribute name="join" value="/WEB-INF/views/account/join.jsp"/>
+    </definition>
+    <definition name="*/*.user" extends="user">
+    	<put-attribute name="home" value="/WEB-INF/views/{1}/{2}.jsp"/>
+    </definition>
+    
+    <definition name="owplayer" template="/WEB-INF/views/layouts/owplayer.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+    	<put-attribute name="navigator" value="/WEB-INF/views/common/navigator.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    	<put-attribute name="owplayer" value="/WEB-INF/views/overwatch/owplayer.jsp"/>
+    </definition>
+    <definition name="*/*.owplayer" extends="owplayer">
+    	<put-attribute name="home" value="/WEB-INF/views/{1}/{2}.jsp"/>
+    </definition>
+    
+    <definition name="owteam" template="/WEB-INF/views/layouts/owteam.jsp">
+    	<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+    	<put-attribute name="navigator" value="/WEB-INF/views/common/navigator.jsp"/>
+    	<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    	<put-attribute name="owteam" value="/WEB-INF/views/overwatch/owteam.jsp"/>
+    </definition>
+    <definition name="*/*.owteam" extends="owteam">
+    	<put-attribute name="home" value="/WEB-INF/views/{1}/{2}.jsp"/>
+    </definition>
+    
+</tiles-definitions>
